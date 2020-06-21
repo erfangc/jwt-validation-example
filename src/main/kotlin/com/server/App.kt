@@ -3,21 +3,18 @@
  */
 package com.server
 
-import io.jsonwebtoken.Claims
-import io.jsonwebtoken.JwtParser
-import io.jsonwebtoken.Jwts
-
-val parser: JwtParser = Jwts
-        .parser()
-        .setSigningKeyResolver(ClassPathSigningKeyResolver())
-        .requireIssuer("https://dev-773716.okta.com/oauth2/default")
+import com.okta.sdk.client.Clients
 
 fun main() {
 
-    val accessToken = "some-token"
+    val client = Clients.builder()
+            .setOrgUrl("https://dev-282685.okta.com")
+            .build()
 
-    val claims = parser.parse<Claims>(accessToken, JwtHandler)
+    client.listUsers().forEach {
+        user ->
+        println("${user.id}, ${user.profile.firstName}, ${user.profile.lastName}")
+    }
 
-    println(claims)
 }
 

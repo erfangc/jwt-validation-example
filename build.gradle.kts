@@ -31,11 +31,12 @@ dependencies {
     // Use the Kotlin JUnit integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 
-//    implementation("io.jsonwebtoken:jjwt-api:0.11.2")
-//    implementation("io.jsonwebtoken:jjwt-impl:0.11.2")
-//    implementation("io.jsonwebtoken:jjwt-jackson:0.11.2")
     implementation("com.okta.jwt:okta-jwt-verifier:0.4.0")
     implementation("com.okta.jwt:okta-jwt-verifier-impl:0.4.0")
+
+    implementation("com.okta.sdk:okta-sdk-impl:1.6.0")
+    implementation("com.okta.sdk:okta-sdk-api:1.6.0")
+    implementation("com.okta.sdk:okta-sdk-httpclient:1.6.0")
 }
 
 application {
